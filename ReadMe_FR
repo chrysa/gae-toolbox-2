@@ -1,0 +1,104 @@
+disco-toolbox est une structure de site modulaire MVC multilingue pour appengine python
+
+==============================
+= INSTALLATION/CONFIGURATION =
+==============================
+	lancer le fichier install.py
+
+=====================================
+= DEPLOYEMENT SUR SERVEUR APPENGINE =
+=====================================
+	uploader le contenu du dossier src uniquement
+
+=============
+= STRUCTURE =
+=============	
+	- helper/						=> dossiers contenant des scriptss d'aide
+		- clean_app.py				=> script de suppression des fichiers .pyc
+		- create_module/			=> dossier contenant les sciprs de fonctions d'aide a la création de modules
+			- create_struct.py		=> script python de création de structure d'un module
+			- find_path.py 			=> script python de générationd de liens vers le dossiers racine des modules
+			- struct_module.yaml	=> fichier yaml de description de la structure d'un module
+		- create_module.py			=> script de création de modules
+		- yaml/						=> librairie de lecture de fichier yaml
+	- install.py            		=> script d'installation
+	- install/               		=> dossier contenant les scripts d'installation
+		- gabarit_app       		=> fichier gabarit de app.yaml ou il ne manque que la première ligne
+		- gen_app_yaml.py   		=> fichier de génération du fichier app.yaml
+		- gen_config_yaml.py		=> fichier de génération du fichier config.yaml
+	- src/                   		=> dossier contenant les sources du projet
+		- communs/		            => dossier contenant les fichiers de fonctionnement communs à toute l'application
+			- controllers/          => dossier contenant les différents conrtrolleurs de traitements du module
+			- locale/               => dossier contenant les traduction de sites grâce a un système .po/.mo
+			- medias/               => stockage des différents fichiers médias
+				- css/              => feuilles de styles appelées d'ofice dans toutes les pages
+				- js/               => feuilles de scripts appelées d'ofice dans toutes les pages
+				- img/              => stockage des images
+			- models/               => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
+			- test/                 => stockage des tests unitaires
+			- views/	            => vues HTML du module
+				- ajax/             => vue appelées en ajax
+				- static/           => vue appelée au chargement de la page
+		- core/                     => dossier contenant les fichiers de gestion et de fonctionnement de base de l'application
+			- controllers/          => dossier contenant les différents conrtrolleurs de traitements du module
+			- libs/                 => dossier de stockage des librairies communes faites maison
+			- locale/               => dossier contenant les traduction de sites grâce a un système .po/.mo
+			- medias/               => stockage des différents fichiers médias
+				- css/              => feuilles de style
+				- js/               => feuilles de scripts
+				- img/              => stockage des images
+			- models/               => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
+			- test/                 => stockage des tests unitaires
+			- views/	            => vues HTML du module
+				- ajax/             => vue appelées en ajax
+				- static/           => vue appelée au chargement de la page
+		- errors/		            => dossier de gestion des erreurs HTTP
+			- controllers/          => dossier contenant les différents conrtrolleurs de traitements du module
+			- libs/                 => dossier de stockage des librairies communes faites maison
+			- locale/               => dossier contenant les traduction de sites grâce a un système .po/.mo
+			- medias/               => stockage des différents fichiers médias
+				- css/              => feuilles de style
+				- js/               => feuilles de scripts
+				- img/              => stockage des images
+			- models/               => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
+			- test/                 => stockage des tests unitaires
+			- views/                => vues HTML du module
+				- ajax/             => vue appelées en ajax
+				- static/           => vue appelée au chargement de la page
+		- modules/ 					=> dossier contenaire des modules
+			- admin/ 				=> dossiers containaire des modules admins
+			- front/				=> dossiers containaire des modules utilisateurs
+		- app.yaml          		=> fichier de confirutation appengone de l'application
+		- config.yaml		    	=> fichier de configuration spécifique a l'application	
+		- main.py           		=> fichier de parsage des urls 
+
+==========================================
+= COMPOSITION DES MODULES admin et front =
+==========================================
+	- controllers => dossier contenant les différents conrtrolleurs de traitements du module
+	- libs        => dossier de stockage des librairies communes faites maison
+	- locale      => dossier contenant les traduction de sites grâce a un système .po/.mo
+	- medias      => stockage des différents fichiers médias
+		- css     => feuilles de style
+		- js      => feuilles de scripts
+		- img     => stockage des images
+	- models      => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
+	- test        => stockage des tests unitaires
+	- views	      => vues HTML du module
+		- ajax    => vue appelées en ajax
+		- static  => vue appelée au chargement de la page
+		- errors  => erreurs spécifiques au module
+
+
+====================
+= APPEL DES MEDIAS =
+====================
+
+===================
+= TESTS UNITAIRES =
+===================
+
+=======================
+= LIBRAIRIES EXTERNES =
+=======================
+	- helper/yaml => PyYAML-3.10

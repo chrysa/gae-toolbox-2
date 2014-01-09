@@ -1,0 +1,46 @@
+﻿2.0.1
+    - refonte complète et reecodage en python (pu de commande linux qui traine)
+    - création de l'installeur
+
+1.1.2
+    script_helper
+        - modification des scripts pour prendre en compte les modules front et les modules admin
+
+    src
+        - mise en place de la zone administration
+        - modification de aeta pour le multi dossiers
+1.1.1
+    ajout du makefile permettant de lancer les scripts d'aide plus facilement
+    refonte rapide du Read_Me_FR
+    ajout dumakefile facilitant le lancement des scripts d'aide
+
+    script_helper
+        - ajout de clean_app.py        => fonctionne sous linux
+        - ajout du aff_tests.py        => fonctionne sous linux
+        - ajout de launch_serv.py	   => permet le lancement du serveur appengine en solo
+        
+    src
+        - ajout de fonction et sécurisation de core/libs/mod.py => impossible d'appeler un module/controller/models/fonction qui n'existe pas 
+
+1.1
+    - passage du nom des constantes de miniscules a majuscules
+    - ajout des scripts d'aide
+    - ajout du dossier pour les documentations
+
+    script_helper
+        - ajout de create_module.py    => fonctionne sous linux
+        - ajout de internationalize.py => fonctionne sous linux
+        - ajout de launch_app.py       => fonctionne sous linux
+    src
+        - déplacement et refonte du fichier affichage.py et ajout de fonction d'affichage pour l'héritage de vues depuis un affichage de base
+        - ajout de core/controllers/memC.py
+        - ajout de aeta pour la prise en charge de tests unitaires (https://code.google.com/p/aeta/)
+        - déplacement de la favicon
+        - fusion du dossier errors et du nouveau dossier core
+        - passage du dossier core en MVC et ajout d'un dossier de libs
+        - refonte du core/controllers/ErrorsController.py
+
+1.0.1
+    - mise en place du système modulaire composé d'un pattern MVC   via les fichiers  core/mod.py  core/affichage.py
+    - fonctionnement théorique de l'autoloader de modules           via le fichier core/mod.py
+    - fonctionnement de l'internationnalisation                     via le fichier core/internationalize.py
