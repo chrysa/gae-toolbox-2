@@ -3,12 +3,13 @@
 # disco-toolbox-2.helpers.create_module.create_struct -- fichier de création des structure des modules
 
 import os
-
+import shutil
 try:
     import yaml                                                                                                                                 # import de la librairie yaml dans le cas d'un appel depuis le dossier helpers
 except:
     from helpers import yaml                                                                                                                    # import de la librairie yaml dans le cas d'un appel depuis le fichier d'installation
 
+from helpers import clean_app
 
 def create_struct(path, module_name, mod_folder, lang, home_page, home_class):
     """fonction de création des dossiers et fichiers du module
@@ -28,9 +29,13 @@ def create_struct(path, module_name, mod_folder, lang, home_page, home_class):
     else:
         f = open(os.getcwd() + os.sep + 'helpers' + os.sep + 'create_module' + os.sep + 'struct_module.yaml', 'r')        
 
-    docs = yaml.load(f)                                                                                                                         # fermeture du fichier struct_module.yaml
+	docs = yaml.load(f)                                                                                                                         # fermeture du fichier struct_module.yaml
+	if os.path.isdir(path + os.sep + module_name):
+		shutil.rmtree(path + os.sep + module_name)
+		print('suppression de l\'ancien module ' + path + os.sep + module_name + '.' * 15 + ' done')
 
     os.mkdir(path + os.sep + module_name)                                                                                                       # création du fichier racine du module
+    print('création du module ' + path + os.sep + module_name + '.' * 15 + ' done')
 
     for f in docs['root'][0]['folders']:                                                                                                        # parcours de la liste des dossiers devant être présent a la racine
         os.mkdir(path + os.sep + module_name + os.sep + f)                                                                                      # création des sous-dossiers
@@ -82,7 +87,7 @@ def create_struct(path, module_name, mod_folder, lang, home_page, home_class):
                 except:
                     print('création du fichier ' + target_file + '.' * 15 + ' failed')
 
-                if f == 'controllers':                                                                                                          # test du fossier en cours de traitement
+                if f == '<cont></cont>rollers':                                                                                                          # test du fossier en cours de traitement
                     target_controller = path + os.sep + module_name + os.sep + f + os.sep + home_page + '.py'                                   # génération du chemin du controller d'accès par défault
                     try:# test de l'état du controller créé
                         app_file = open(target_controller, 'wb')                                                                                # générataion du controller

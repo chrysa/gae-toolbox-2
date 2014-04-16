@@ -8,7 +8,10 @@ import sys
 from install import gen_app_yaml
 from install import gen_config_yaml
 
+import helpers
+
 from helpers import yaml
+from helpers import clean_app
 
 from helpers.create_module import create_struct
 from helpers.create_module import find_path
@@ -18,12 +21,14 @@ src_path = path + os.sep + 'src' + os.sep                                       
 install_path = path + os.sep + 'install' + os.sep                                                                                                   # génération du chemin du dossier des installations
 conf = {}                                                                                                                                           # initialisation du dictionnaire contenant les paramètres de configuration
 
+print('-' * 54)
 print('installation de gae-toolbox')
+print('-' * 54)
 print('-' * 5 + ' step 1/9 : paramétrage du fichier app.yaml ' + '-' * 5)
 app_name                      = raw_input('nom de l\'application : ')                                                                               # récupération du nom de l'aplication
 
 print('-' * 5 + ' step 2/9 : paramétrage du fichier config.yaml : configuration générale ' + '-' * 5)
-conf['SITE_TITLE'] = raw_input('titre du site : ')                                                                                                  # récupération du titre du site
+conf['SITE_TITLE'] 			  = raw_input('titre du site : ')                                                                                                  # récupération du titre du site
 conf['NDD']                   = raw_input('nom de domaine de l\'application : ')                                                                    # récupération du nom de domaine utilisé pour le déployement de l'application
 conf['TIMEZONE']              = raw_input('timezone par défault : [Europe/Paris] ')                                                                 # récupération de la timezone par ddéfaut du site
 conf['LANG']                  = raw_input('langue par défault du site : [fr_FR] ')                                                                  # récupération du code langue par défault
@@ -60,8 +65,9 @@ conf = yaml.load(f)
 
 print('-' * 5 + ' step 9/9 : ccréation des modules de base ' + '-' * 5)
 print('génération du module d\'accueil des utilisateurs ' + '.' * 60 + ' please wait')
+
 path = find_path.find_path(0, conf['mod_folder'])                                                                                                 # recuperation du chemin du front
-create_struct.create_struct(path, conf['front_home'], conf['mod_folder'], conf['lang'], conf['home_page'], conf['home_class'])                    # création du module d'accueil de l'utilisateur
+helpers.clean_app;
 
 print('génération du module d\'accueil de la zone d\'administration ' + '.' * 60 + ' please wait')
 path = find_path.find_path(1, conf['mod_folder'])                                                                                                 # recuperation du chemin du pannel

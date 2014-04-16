@@ -1,10 +1,10 @@
-title: gae-toolbox-2
-ndd: discordium.fr
+title: framework-1
+ndd: localhost
 send_mail: 
 recep_mail: 
 timezone: Europe/Paris
 lang: fr_FR
-admin: admin
+admin: admin/
 mod_folder: modules
 front_home: home
 admin_home: home

@@ -1,4 +1,7 @@
-﻿2.0.1
+﻿2.1.0
+	- ajout d'un makefile d'aide
+	
+2.0.1
     - refonte complète et reecodage en python (pu de commande linux qui traine)
     - création de l'installeur
 

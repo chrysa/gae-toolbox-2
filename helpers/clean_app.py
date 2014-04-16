@@ -2,8 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import os
+import shutil
 
-target = os.getcwd()[0:len(os.getcwd()) - 8]
+if os.getcwd()[0:len(os.getcwd())-8] == 'helpers':
+	target = os.getcwd()[0:len(os.getcwd())-8]
+else:
+	target = os.getcwd()[0:len(os.getcwd())]
+
 
 print('----| nettoyage de l\'application |----')
 
