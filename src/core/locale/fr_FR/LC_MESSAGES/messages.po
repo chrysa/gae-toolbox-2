@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+
+#: errors/controllers/ErrorsController.py:25
+msgid "title_403"
+msgstr "accès restreint"
+
+#: errors/controllers/ErrorsController.py:30
+msgid "err_403"
+msgstr "erreur 403"
+
+#: errors/controllers/ErrorsController.py:33
+msgid "mess_403"
+msgstr "vous n'avez pas l'authoristion d\'accéder a cette page"
+
+#: errors/controllers/ErrorsController.py:49
+msgid "title_404"
+msgstr "page inexistente"
+
+#: errors/controllers/ErrorsController.py:53
+msgid "mess_clic_404"
+msgstr "cliquer pour être rediriger sans attendre"
+
+#: errors/controllers/ErrorsController.py:55
+msgid "err_404"
+msgstr "erreur 404"
+
+#: errors/controllers/ErrorsController.py:56
+msgid "mess_404"
+msgstr "désolé la page demandée existe pas ou plus, vous allez être rediriger vers la page d'accueil dans quelques secondes"
+
+#: errors/controllers/ErrorsController.py:72
+msgid "title_500"
+msgstr "problème serveur"
+
+#: errors/controllers/ErrorsController.py:74
+msgid "err_500"
+msgstr "erreur 500"
+
+#: errors/controllers/ErrorsController.py:75
+msgid "mess_500"
+msgstr "désolé le serveur semble avoir un soucis actuellement"
+
+#: errors/controllers/ErrorsController.py:91
+msgid "title_502"
+msgstr "problème serveur"
+
+#: errors/controllers/ErrorsController.py:93
+msgid "err_502"
+msgstr "erreur 502"
+
+#: errors/controllers/ErrorsController.py:94
+msgid "mess_502"
+msgstr "le serveur demandé ne peut être contacté actuellement merci de rééssayer plus tard"
+
+#: errors/controllers/ErrorsController.py:110
+msgid "title_504"
+msgstr "problème serveur"
+
+#: errors/controllers/ErrorsController.py:112
+msgid "err_504"
+msgstr "erreur 504"
+
+#: errors/controllers/ErrorsController.py:113
+msgid "mess_504"
+msgstr "le serveur rencontre actuellement un problème ce qui fait que le temps de traitement de votre demande est excessivement long et donc stoppé merci de rééssayer plus tard"

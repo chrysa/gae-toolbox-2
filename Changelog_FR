@@ -1,11 +1,4 @@
-﻿2.1.0
-	- ajout d'un makefile d'aide
-	
-2.0.1
-    - refonte complète et reecodage en python (pu de commande linux qui traine)
-    - création de l'installeur
-
-1.1.2
+﻿1.1.2
     script_helper
         - modification des scripts pour prendre en compte les modules front et les modules admin
 

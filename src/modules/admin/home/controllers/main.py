@@ -1,12 +1,15 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# disco-toolbox-2.src.modules.controllers.main -- controller principal du module controllers
-
+  # -*- coding: utf-8 -*-  
+# disco-toolbox.src.modules.home.controllers.main -- controller du main
 import webapp2
 
-class main(webapp2.RequestHandler):
-	def get(self):
-		self.response.write('Hello world home !')
+from core.libs import affichage                                         # appel de la librairie d'affichage
 
-	def post(self):
-		self.response.write('Hello world home !')
+MODULE_NAME = 'home'                                                    # nom du module
+
+
+class main(webapp2.RequestHandler):
+    def get(self, target):
+        template_values = {
+            'content': 'accueil pannel'
+        }
+        affichage.extend_to_base(target.response, template_values)

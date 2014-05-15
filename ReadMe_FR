@@ -1,104 +1,97 @@
-disco-toolbox est une structure de site modulaire MVC multilingue pour appengine python
+disco-toolbox est une structure de site modulaire MVC multilingue avec un code qui luin est propre pour appengine python
 
 ==============================
 = INSTALLATION/CONFIGURATION =
 ==============================
-	lancer le fichier install.py
 
-=====================================
-= DEPLOYEMENT SUR SERVEUR APPENGINE =
-=====================================
-	uploader le contenu du dossier src uniquement
+	configuration des fichiers src/core/config.py et script_help/config.py
+	mettre les modules nécessaires dans le dossier "modules" suivant la strcuture présente plus bas
+	modifier la favicon dans core/medias/img
 
 =============
 = STRUCTURE =
-=============	
-	- helper/						=> dossiers contenant des scriptss d'aide
-		- clean_app.py				=> script de suppression des fichiers .pyc
-		- create_module/			=> dossier contenant les sciprs de fonctions d'aide a la création de modules
-			- create_struct.py		=> script python de création de structure d'un module
-			- find_path.py 			=> script python de générationd de liens vers le dossiers racine des modules
-			- struct_module.yaml	=> fichier yaml de description de la structure d'un module
-		- create_module.py			=> script de création de modules
-		- yaml/						=> librairie de lecture de fichier yaml
-	- install.py            		=> script d'installation
-	- install/               		=> dossier contenant les scripts d'installation
-		- gabarit_app       		=> fichier gabarit de app.yaml ou il ne manque que la première ligne
-		- gen_app_yaml.py   		=> fichier de génération du fichier app.yaml
-		- gen_config_yaml.py		=> fichier de génération du fichier config.yaml
-	- src/                   		=> dossier contenant les sources du projet
-		- communs/		            => dossier contenant les fichiers de fonctionnement communs à toute l'application
-			- controllers/          => dossier contenant les différents conrtrolleurs de traitements du module
-			- locale/               => dossier contenant les traduction de sites grâce a un système .po/.mo
-			- medias/               => stockage des différents fichiers médias
-				- css/              => feuilles de styles appelées d'ofice dans toutes les pages
-				- js/               => feuilles de scripts appelées d'ofice dans toutes les pages
-				- img/              => stockage des images
-			- models/               => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
-			- test/                 => stockage des tests unitaires
-			- views/	            => vues HTML du module
-				- ajax/             => vue appelées en ajax
-				- static/           => vue appelée au chargement de la page
-		- core/                     => dossier contenant les fichiers de gestion et de fonctionnement de base de l'application
-			- controllers/          => dossier contenant les différents conrtrolleurs de traitements du module
-			- libs/                 => dossier de stockage des librairies communes faites maison
-			- locale/               => dossier contenant les traduction de sites grâce a un système .po/.mo
-			- medias/               => stockage des différents fichiers médias
-				- css/              => feuilles de style
-				- js/               => feuilles de scripts
-				- img/              => stockage des images
-			- models/               => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
-			- test/                 => stockage des tests unitaires
-			- views/	            => vues HTML du module
-				- ajax/             => vue appelées en ajax
-				- static/           => vue appelée au chargement de la page
-		- errors/		            => dossier de gestion des erreurs HTTP
-			- controllers/          => dossier contenant les différents conrtrolleurs de traitements du module
-			- libs/                 => dossier de stockage des librairies communes faites maison
-			- locale/               => dossier contenant les traduction de sites grâce a un système .po/.mo
-			- medias/               => stockage des différents fichiers médias
-				- css/              => feuilles de style
-				- js/               => feuilles de scripts
-				- img/              => stockage des images
-			- models/               => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
-			- test/                 => stockage des tests unitaires
-			- views/                => vues HTML du module
-				- ajax/             => vue appelées en ajax
-				- static/           => vue appelée au chargement de la page
-		- modules/ 					=> dossier contenaire des modules
-			- admin/ 				=> dossiers containaire des modules admins
-			- front/				=> dossiers containaire des modules utilisateurs
-		- app.yaml          		=> fichier de confirutation appengone de l'application
-		- config.yaml		    	=> fichier de configuration spécifique a l'application	
-		- main.py           		=> fichier de parsage des urls 
+=============
+	- Makefile						   => fichier de lancement des scripts d'aide
+	- doc                              => dossier contenant la documentation du projet
+	- script helper                    => dossier contenant des scripts python d'aide a la gestion du projet  (fonctionne sous linux)
+		- aff_tests.py				   => affichage des tests unitaires
+ 		- clean_app.py 				   => script permettant de supprimer tous les fichiers compilés de l'application
+		- config.py 		           => fichier de configuration des scripts d'aide
+		- create_module.py             => script python de génération de la structure d'un module
+        - internationalize.py          => script de gestion des traductions
+        - launch_app.py                => lanceur de l'application avec différentes options
+        - launch_serv.py               => lanceur le serveur appengine
+	- src                              => dossier contenant les sources du projet
+		- aeta                         => librairie externe de gestion des tests unitaires
+		- babel                        => librairie externe de gestion du multilingue
+		- core                         => module de configuration générale du site
+			- models                   => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
+			- views	                   => vues HTML communes a tout le projet
+				- ajax                 => vue appelées en ajax
+				- static               => vue appelée au chargement de la page
+					- base.html        => structure de base pour toutes les pages
+					- title.html       => structure de base pour toutes les pages
+				- errors               => erreurs spécifiques au module
+					- XXX_head.html    => structure de devant être intégré dans le header du visuel de l'erreur HTTP XXX 
+					- XXX_content.html => structure de devant être intégré dans le body du visuel de l'erreur HTTP XXX
+			- controllers              => dossier contenant les différents conrtrolleurs de traitements du module
+				- ErrorsController.py  => controller des erreurs HTTP
+			- libs                     => dossier de stockage des librairies communes faites maison
+				- affichage.py         => fichier de gestion de l'affichage et dalégeage d'écriture
+				- date.py              => fichier de gestion des dates et des timestamps
+				- internationalize.py  => fichier de gestion des traductions
+				- mod.py               => fichier de gestion des modules
+				- memC.py              => fichierr de gestion d'interaction avec le datastore intégrant le memcache
+			- medias                   => stockage des différents fichiers médias
+				- css                  => feuilles de style
+				- js                   => feuilles de scripts
+				- img                  => stockage des images
+			- locale                   => dossier contenant les traduction de sites grâce a un système .po/.mo
+			- test                     => stockage des tests unitaires
+			- config.py                => fichier contenant les variables de configurations globales du site
+		- modules					   => stockage des modules
+			- admin                    => dossier de stockage du pannel d'administration
+			- front            		   => dossier contenant les modules du front
+		- pytz                     	   => librairie externe de gestion du décalage horaire
+		- app.yaml                     => fichier de confirutation de l'application
+		- main.py                      => fichier de parsage des urls 
 
 ==========================================
 = COMPOSITION DES MODULES admin et front =
 ==========================================
-	- controllers => dossier contenant les différents conrtrolleurs de traitements du module
-	- libs        => dossier de stockage des librairies communes faites maison
-	- locale      => dossier contenant les traduction de sites grâce a un système .po/.mo
-	- medias      => stockage des différents fichiers médias
-		- css     => feuilles de style
-		- js      => feuilles de scripts
-		- img     => stockage des images
 	- models      => dossier conteneantns les modèles de stockages des modèles et les interactions avec le datastore
-	- test        => stockage des tests unitaires
 	- views	      => vues HTML du module
 		- ajax    => vue appelées en ajax
 		- static  => vue appelée au chargement de la page
 		- errors  => erreurs spécifiques au module
+	- controllers => dossier contenant les différents conrtrolleurs de traitements du module
+	- libs        => dossier de stockage des librairies communes faites maison
+	- medias      => stockage des différents fichiers médias
+		- css     => feuilles de style
+		- js      => feuilles de scripts
+		- img     => stockage des images
+	- locale      => dossier contenant les traduction de sites grâce a un système .po/.mo
+	- test        => stockage des tests unitaires
 
 
 ====================
 = APPEL DES MEDIAS =
 ====================
+	appel d'images pour un module => par l'url *ndd*/img/*nom du module*/*nom de l'image*
+	appel du JS pour un module    => par l'url *ndd*/js/*nom du module*/*nom de l'image*.*extension*
+	appel du CSS pour un module   => par l'url *ndd*/css/*nom du module*/*nom de l'image*
 
 ===================
 = TESTS UNITAIRES =
 ===================
+	- appels du pannels de tests unitaires => par l'url *ndd*/admin/tests/
+	- nomage des fichiers de tests         => *nom*_test.py
+	- désactiver les tests unitaires       => supprimer le handlers de l'app.yaml
 
 =======================
 = LIBRAIRIES EXTERNES =
 =======================
-	- helper/yaml => PyYAML-3.10
+
+	- aeta 	=>	pour la prise en charge de tests unitaires => https://code.google.com/p/aeta/
+	- babel	=>	pour la gestion du multilingue			   => https://pypi.python.org/pypi/Babel‎/
+	- pytz  =>	pour la gestion du décalage horaire		   => https://pypi.python.org/pypi/pytz/‎

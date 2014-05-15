@@ -1,13 +1,16 @@
-application: framework-1
+application: disco-gae-toolbox
 version: 1
 runtime: python27
-api_version: 1
+api_version: 1 
 threadsafe: yes
 
 handlers:
-- url: /favicon\.ico
+- url: /core/medias/img/favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+
+- url: /tests/.*
+  script: aeta.main.APP
 
 - url: .*
   script: main.app

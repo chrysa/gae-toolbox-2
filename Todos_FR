@@ -1,0 +1,31 @@
+a tester
+    - créer et tester une application en local et en prod
+    - le systeme de memcache (core/controllers/memC.py)
+    - les tests unitaires
+
+a faire
+    - sur le long terme tout recoder
+
+    - recommenter le code
+    - réarenger le code
+    - traduire les commentaires et le changelog en anglais
+    - traduire le readme pour avoir une version FR et une EN
+
+    - script_helper
+        - refaire le traducteur (option 3 de internationnalize)
+        - faire des scripts d'help
+            - pour générer une doc avec sphinx (et trouver coment configurer spinx pour appengine)
+        - générateur de diagrammes UML de fonctionnement sur plusieurs calques
+        - modifier le launch_app pour rendre les ports dynamique et pouvoir lancer plusieurs applis en simultané
+
+    - src
+        - coder un simili pannel d'administration
+            - gestion d'accès 
+            - gestion des modules actifs
+            - etc ...
+        - intégration de simpleauth         =>  https://github.com/crhym3/simpleauth
+        - intégration de gae-sessions       =>  https://github.com/dound/gae-sessions
+        - intégration de gae_mini_profiler  =>  https://github.com/kamens/gae_mini_profiler
+        - intégration de gae-livecount      =>  https://github.com/chrysa/gae-livecount
+        - intégration de GAE-APIMonitor     =>  https://github.com/chrysa/GAE-APIMonitor
+        - remplacer aeta/pytz/babel/simpleauth/gae-sessions/gae_mini_profiler/gae-livecount/GAE-APIMonitor par des libs faites maison pour limiter le nombre de fichiers et correspondre vraiment aux besoin
